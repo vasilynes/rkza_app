@@ -3,6 +3,7 @@ from aiogram.filters import Command
 from aiogram.fsm import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import Message
+from utils.validators import is_valid_inn
 
 router = Router()
 
@@ -30,9 +31,6 @@ async def start_handler(message: Message, state: FSMContext):
         'Пример: 7707083893'
     )
     await state.set_state(Registration.waiting_for_inn)
-
-def is_valid_inn(inn):
-    return True
 
 @router.message(Registration.waiting_for_inn)
 async def process_inn(message: Message, state: FSMContext):
