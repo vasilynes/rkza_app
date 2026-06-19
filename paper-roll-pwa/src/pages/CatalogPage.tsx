@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { getCategories, getProducts } from '../api/catalog';
 import type { Category, Product } from '../api/catalog'; 
 import { useCartStore } from '../stores/cartStore';
-import { CartIcon } from '../components/CartIcon';
 
 function CatalogPage() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -38,7 +37,6 @@ function CatalogPage() {
 
   return (
     <div>
-      <CartIcon />
       <h1>Каталог товаров</h1>
       
       <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
